@@ -8,7 +8,7 @@ class RDTLayer(object):
     # ########################################################################
     # YOUR CODE HERE:
     
-    DATA_LENGTH = 1 # characters
+    DATA_LENGTH = 4 # characters
 
     # Receive window size for flow-control
     # max num of packet sent in 1 iteration: FLOW_CONTROL_WIN_SIZE / DATA_LENGTH
@@ -18,7 +18,7 @@ class RDTLayer(object):
     # ########################################################################
     # YOUR CODE HERE:
     
-    FLOW_CONTROL_WIN_SIZE = 1 # characters
+    FLOW_CONTROL_WIN_SIZE = 15 # characters
 
     # ########################################################################
     # Step 2: Change the FLOW_CONTROL_WIN_SIZE so it can send multiple packets a time
