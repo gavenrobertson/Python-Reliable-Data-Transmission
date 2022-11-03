@@ -25,7 +25,7 @@ class RDTLayer(object):
     # ########################################################################
     # YOUR CODE HERE:
     
-    FLOW_CONTROL_WIN_SIZE = 15
+    FLOW_CONTROL_WIN_SIZE = 16
 
     # ########################################################################
     # Step 4: declare and initialize a variable, MAX_ITERATIONS_SEGMENT_TIMEOUT, 
@@ -147,7 +147,7 @@ class RDTLayer(object):
         # ########################################################################
         # YOUR CODE HERE:
 
-        while seqnum < self.sendWinStart + RDTLayer.FLOW_CONTROL_WIN_SIZE:
+        while seqnum < (self.sendWinStart + RDTLayer.FLOW_CONTROL_WIN_SIZE):
 
         # if the seqnum already in the sent list, then 
         # don't send the packet again, since we are waiting for its ack or timeout
