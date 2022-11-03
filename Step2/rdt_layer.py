@@ -18,13 +18,14 @@ class RDTLayer(object):
     # ########################################################################
     # YOUR CODE HERE:
     
-    FLOW_CONTROL_WIN_SIZE = 4 # characters
+    #FLOW_CONTROL_WIN_SIZE = 4 # characters
 
     # ########################################################################
     # Step 2: Change the FLOW_CONTROL_WIN_SIZE so it can send multiple packets a time
     # ########################################################################
     # YOUR CODE HERE:
     
+    FLOW_CONTROL_WIN_SIZE = 15
 
     # ########################################################################
     # Step 4: declare and initialize a variable, MAX_ITERATIONS_SEGMENT_TIMEOUT, 
@@ -146,6 +147,10 @@ class RDTLayer(object):
         # ########################################################################
         # YOUR CODE HERE:
 
+        while seqnum < 15:
+            data = self.dataToSend[seqnum:seqnum + self.DATA_LENGTH]
+
+
         # if the seqnum already in the sent list, then 
         # don't send the packet again, since we are waiting for its ack or timeout
         # ########################################################################
@@ -160,6 +165,8 @@ class RDTLayer(object):
         # Step 2: add another condition, what if the current segment to be sent exceeds the window size?
         # ##############################################################################################
         # YOUR CODE HERE:
+        if seqnum == 12:
+            return
 
         
         # Get data from the dataToSend

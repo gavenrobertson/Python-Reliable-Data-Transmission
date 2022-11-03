@@ -24,7 +24,7 @@ class RDTLayer(object):
     # Step 2: Change the FLOW_CONTROL_WIN_SIZE so it can send multiple packets a time
     # ########################################################################
     # YOUR CODE HERE:
-    
+
 
     # ########################################################################
     # Step 4: declare and initialize a variable, MAX_ITERATIONS_SEGMENT_TIMEOUT, 
