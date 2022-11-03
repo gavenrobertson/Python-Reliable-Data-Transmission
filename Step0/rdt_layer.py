@@ -18,7 +18,7 @@ class RDTLayer(object):
     # ########################################################################
     # YOUR CODE HERE:
     
-    FLOW_CONTROL_WIN_SIZE = 15 # characters
+    FLOW_CONTROL_WIN_SIZE = 4 # characters
 
     # ########################################################################
     # Step 2: Change the FLOW_CONTROL_WIN_SIZE so it can send multiple packets a time
@@ -168,7 +168,7 @@ class RDTLayer(object):
         # ###################################################################################
         # YOUR CODE HERE:
         
-        data = self.dataToSend[seqnum]
+        data = self.dataToSend[seqnum:seqnum + self.DATA_LENGTH]
 
         # create a data segment  
         seg = Segment()
@@ -239,7 +239,8 @@ class RDTLayer(object):
                 #         when a segment contains multiple chars
                 # ###########################################################################################
                 # YOUR CODE HERE:
-                
+
+                acknum = seg.seqnum + self.DATA_LENGTH
 
                 # ###########################################################################################
                 # Step 3: modify the acknum so it gets the cumulative ack
@@ -247,7 +248,7 @@ class RDTLayer(object):
                 # ###########################################################################################
                 # YOUR CODE HERE:
 
-                acknum = seg.seqnum + 1
+                #acknum = seg.seqnum + 1
                 
 
                 # change the dataPacketsReceived to True, indicating this is indeed a data packet
