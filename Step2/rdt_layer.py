@@ -147,7 +147,7 @@ class RDTLayer(object):
         # ########################################################################
         # YOUR CODE HERE:
 
-        while (seqnum < self.sendWinStart + RDTLayer.FLOW_CONTROL_WIN_SIZE):
+        while seqnum < self.sendWinStart + RDTLayer.FLOW_CONTROL_WIN_SIZE:
 
         # if the seqnum already in the sent list, then 
         # don't send the packet again, since we are waiting for its ack or timeout
@@ -155,17 +155,15 @@ class RDTLayer(object):
         # Step 2: modify the following if statement so it wouldn't return immediately
         # ########################################################################
             if seqnum in self.dictSent:
-                #adding the data length from seqnum and datalength which is just 4
                 seqnum = seqnum + RDTLayer.DATA_LENGTH
-                print("Here is the seq num being moved by .DATALENGTH", seqnum)
                 return
 
         # ##############################################################################################
         # Step 2: add another condition, what if the current segment to be sent exceeds the window size?
         # ##############################################################################################
         # YOUR CODE HERE:
-            if seqnum > RDTLayer.FLOW_CONTROL_WIN_SIZE:
-                print("exceeds the window size")
+            if seqnum > self.sendWinStart + RDTLayer.FLOW_CONTROL_WIN_SIZE:
+                print("exceeds the window size..........Now breaking: ")
                 break
 
         # Get data from the dataToSend
@@ -174,7 +172,7 @@ class RDTLayer(object):
         # ###################################################################################
         # YOUR CODE HERE:
         
-            data = self.dataToSend[seqnum:seqnum + self.DATA_LENGTH]
+            data = self.dataToSend[seqnum:seqnum + RDTLayer.DATA_LENGTH]
 
         # create a data segment  
             seg = Segment()
