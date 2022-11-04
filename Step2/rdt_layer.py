@@ -168,12 +168,11 @@ class RDTLayer(object):
         # ##############################################################################################
         # YOUR CODE HERE:
             if seqnum > self.sendWinStart + RDTLayer.FLOW_CONTROL_WIN_SIZE:
-        
-            # Get data from the dataToSend
-        # ###################################################################################
-        # Step 1: modify the following line so that it can send multiple chars in one packet
-        # ###################################################################################
-        # YOUR CODE HERE:
+
+                # ###################################################################################
+                # Step 1: modify the following line so that it can send multiple chars in one packet
+                # ###################################################################################
+                # YOUR CODE HERE:
         
             data = self.dataToSend[seqnum:seqnum + self.DATA_LENGTH]
 
