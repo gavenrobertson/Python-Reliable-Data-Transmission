@@ -162,7 +162,7 @@ class RDTLayer(object):
         # Step 2: add another condition, what if the current segment to be sent exceeds the window size?
         # ##############################################################################################
         # YOUR CODE HERE:
-            if seqnum > self.sendWinStart + RDTLayer.FLOW_CONTROL_WIN_SIZE:
+            if seqnum > (self.sendWinStart + RDTLayer.FLOW_CONTROL_WIN_SIZE):
                 break
 
                 # ###################################################################################
@@ -195,6 +195,7 @@ class RDTLayer(object):
         # Once the segment is sent, add the segment into sent dictionary
         # since now we are waiting for its ack or timeouts
             self.dictSent[seqnum] = seg
+            seqnum = seqnum + RDTLayer.DATA_LENGTH
 
 
 
