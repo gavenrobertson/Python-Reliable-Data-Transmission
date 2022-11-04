@@ -149,10 +149,6 @@ class RDTLayer(object):
 
         while (seqnum < (self.sendWinStart + RDTLayer.FLOW_CONTROL_WIN_SIZE)):
 
-
-
-
-
         # if the seqnum already in the sent list, then 
         # don't send the packet again, since we are waiting for its ack or timeout
         # ########################################################################
@@ -160,7 +156,6 @@ class RDTLayer(object):
         # ########################################################################
             if seqnum in self.dictSent:
                 seqnum = seqnum + RDTLayer.DATA_LENGTH
-            
                 return
 
         # ##############################################################################################
