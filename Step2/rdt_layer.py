@@ -167,9 +167,9 @@ class RDTLayer(object):
         # Step 2: add another condition, what if the current segment to be sent exceeds the window size?
         # ##############################################################################################
         # YOUR CODE HERE:
-            if seqnum > self.sendWinStart + RDTLayer.FLOW_CONTROL_WIN_SIZE
+            if seqnum > self.sendWinStart + RDTLayer.FLOW_CONTROL_WIN_SIZE:
         
-        # Get data from the dataToSend
+            # Get data from the dataToSend
         # ###################################################################################
         # Step 1: modify the following line so that it can send multiple chars in one packet
         # ###################################################################################
