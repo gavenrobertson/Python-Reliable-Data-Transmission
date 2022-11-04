@@ -18,13 +18,14 @@ class RDTLayer(object):
     # ########################################################################
     # YOUR CODE HERE:
     
-    FLOW_CONTROL_WIN_SIZE = 4 # characters
+    #FLOW_CONTROL_WIN_SIZE = 4 # characters
 
     # ########################################################################
     # Step 2: Change the FLOW_CONTROL_WIN_SIZE so it can send multiple packets a time
     # ########################################################################
     # YOUR CODE HERE:
-
+    
+    FLOW_CONTROL_WIN_SIZE = 16
 
     # ########################################################################
     # Step 4: declare and initialize a variable, MAX_ITERATIONS_SEGMENT_TIMEOUT, 
@@ -146,21 +147,27 @@ class RDTLayer(object):
         # ########################################################################
         # YOUR CODE HERE:
 
+        while (seqnum < (self.sendWinStart + RDTLayer.FLOW_CONTROL_WIN_SIZE)):
+
+
+
+
+
         # if the seqnum already in the sent list, then 
         # don't send the packet again, since we are waiting for its ack or timeout
         # ########################################################################
         # Step 2: modify the following if statement so it wouldn't return immediately
         # ########################################################################
-        if seqnum in self.dictSent:
-            # YOUR CODE HERE:
+            if seqnum in self.dictSent:
+                seqnum = seqnum + RDTLayer.DATA_LENGTH
             
-            return
+                return
 
         # ##############################################################################################
         # Step 2: add another condition, what if the current segment to be sent exceeds the window size?
         # ##############################################################################################
         # YOUR CODE HERE:
-
+            if seqnum > self.sendWinStart + RDTLayer.FLOW_CONTROL_WIN_SIZE
         
         # Get data from the dataToSend
         # ###################################################################################
@@ -168,17 +175,17 @@ class RDTLayer(object):
         # ###################################################################################
         # YOUR CODE HERE:
         
-        data = self.dataToSend[seqnum:seqnum + self.DATA_LENGTH]
+            data = self.dataToSend[seqnum:seqnum + self.DATA_LENGTH]
 
         # create a data segment  
-        seg = Segment()
+            seg = Segment()
 
         # set seqnum and data 
-        seg.setData(seqnum,data)
+            seg.setData(seqnum,data)
 
         # display segment, for debugging purposes
-        print("sending segment: ")
-        seg.dump()
+            print("sending segment: ")
+            seg.dump()
 
         # ###################################################################################
         # Step 4: set seg's start iteration 
@@ -187,11 +194,11 @@ class RDTLayer(object):
 
 
         # Use the unreliable sendChannel to send the segment
-        self.sendChannel.udt_send(seg)
+            self.sendChannel.udt_send(seg)
 
         # Once the segment is sent, add the segment into sent dictionary
         # since now we are waiting for its ack or timeouts
-        self.dictSent[seqnum] = seg
+            self.dictSent[seqnum] = seg
 
 
 
