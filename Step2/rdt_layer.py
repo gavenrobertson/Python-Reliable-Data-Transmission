@@ -155,7 +155,7 @@ class RDTLayer(object):
         # Step 2: modify the following if statement so it wouldn't return immediately
         # ########################################################################
             if seqnum in self.dictSent:
-
+                #just adding the data lenght to continue moving forward. This was found in disc.
                 seqnum = seqnum + RDTLayer.DATA_LENGTH
                 continue
 
@@ -173,7 +173,7 @@ class RDTLayer(object):
                 # ###################################################################################
                 # YOUR CODE HERE:
         
-
+            #got some help from disc, this is just sending the data + data length
             data = self.dataToSend[seqnum:seqnum + self.DATA_LENGTH]
 
         # create a data segment  
