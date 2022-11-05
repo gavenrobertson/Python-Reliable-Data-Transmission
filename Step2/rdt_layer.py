@@ -155,8 +155,9 @@ class RDTLayer(object):
         # Step 2: modify the following if statement so it wouldn't return immediately
         # ########################################################################
             if seqnum in self.dictSent:
+
                 seqnum = seqnum + RDTLayer.DATA_LENGTH
-                return
+                break
 
         # ##############################################################################################
         # Step 2: add another condition, what if the current segment to be sent exceeds the window size?
