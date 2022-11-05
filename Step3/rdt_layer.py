@@ -73,6 +73,10 @@ class RDTLayer(object):
         # 2. make sure dataReceived is empty before appending 
         # ########################################################################
         # YOUR CODE HERE:
+        #self.dataReceived = []
+        finalsort = sorted(self.dataReceived())
+        print(finalsort)
+        print("THIS IS WHERE THE FINAL SORT VARIABLE IS::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::")
 
          
         return ''.join(self.dataReceived)
