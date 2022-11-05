@@ -157,13 +157,15 @@ class RDTLayer(object):
             if seqnum in self.dictSent:
 
                 seqnum = seqnum + RDTLayer.DATA_LENGTH
-                break
+                continue
 
         # ##############################################################################################
         # Step 2: add another condition, what if the current segment to be sent exceeds the window size?
         # ##############################################################################################
         # YOUR CODE HERE:
             if seqnum > (self.sendWinStart + RDTLayer.FLOW_CONTROL_WIN_SIZE):
+                #print()
+                #breaking here.
                 break
 
                 # ###################################################################################
