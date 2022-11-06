@@ -97,7 +97,7 @@ class RDTLayer(object):
 
         for key in self.dictReceived:
 
-            if key + self.DATA_LENGTH not in self.dictReceived.keys():
+            if key + 4 not in self.dictReceived.keys():
 
                 return self.dictReceived[key] + self.DATA_LENGTH
 
