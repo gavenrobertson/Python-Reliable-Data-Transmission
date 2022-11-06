@@ -98,9 +98,10 @@ class RDTLayer(object):
         for key in self.dictReceived:
 
             #print("HERE IS THE KEY::::::::::::::::::::::::::::::::::::", key)
-            print("HERE IS THE SELF.DICT::::::::::::::::::::::::::::::::::::::::::::", self.dictReceived[key])
-            #if key + self.DATA_LENGTH not in self.dictReceived.keys():
+            #print("HERE IS THE SELF.DICT::::::::::::::::::::::::::::::::::::::::::::", self.dictReceived[key])
+            if key + self.DATA_LENGTH not in self.dictReceived.keys():
 
+                return key + self.DATA_LENGTH
                 #return self.dictReceived[key] + self.DATA_LENGTH
 
 
