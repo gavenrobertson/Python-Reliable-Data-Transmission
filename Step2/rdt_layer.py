@@ -24,7 +24,7 @@ class RDTLayer(object):
     # Step 2: Change the FLOW_CONTROL_WIN_SIZE so it can send multiple packets a time
     # ########################################################################
     # YOUR CODE HERE:
-    
+    #changed to 16
     FLOW_CONTROL_WIN_SIZE = 16
 
     # ########################################################################
@@ -163,6 +163,7 @@ class RDTLayer(object):
         # Step 2: add another condition, what if the current segment to be sent exceeds the window size?
         # ##############################################################################################
         # YOUR CODE HERE:
+        #just added if seqnum is greater than wind start and the total size
             if seqnum > (self.sendWinStart + RDTLayer.FLOW_CONTROL_WIN_SIZE):
                 #print()
                 #breaking here.

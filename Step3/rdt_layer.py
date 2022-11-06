@@ -94,7 +94,9 @@ class RDTLayer(object):
     # ########################################################################
     def getCumAck(self):
         # YOUR CODE HERE:
-
+        #i did get help from disc a lot, I was able to write
+        #this in pesudocode. for key in the dict recived I then check for
+        #if the key + data length is not in recieved keys then I return the key plus data length
         for key in self.dictReceived:
 
             #print("HERE IS THE KEY::::::::::::::::::::::::::::::::::::", key)
@@ -269,7 +271,7 @@ class RDTLayer(object):
                 # Step 3: use dictReceived dictionary instead of dataReceived list to store the received segments 
                 # ###########################################################################################
                 # YOUR CODE HERE:
-
+                # this wasnt working but puting seg.seqnum it started working now.
                 self.dictReceived[seg.seqnum] = seg.payload
 
                 # assign value to acknum, so it shows the next expected byte
@@ -286,7 +288,7 @@ class RDTLayer(object):
                 # hint: call getCumAck()
                 # ###########################################################################################
                 # YOUR CODE HERE:
-
+                # just setting acknum to self.getCumAck()
                 acknum = self.getCumAck()
                 
 

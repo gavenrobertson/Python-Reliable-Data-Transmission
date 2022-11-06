@@ -167,7 +167,7 @@ class RDTLayer(object):
         # Step 1: modify the following line so that it can send multiple chars in one packet
         # ###################################################################################
         # YOUR CODE HERE:
-        
+        #here is am setting data equal to seqnum + data length which is == 4 in this case
         data = self.dataToSend[seqnum:seqnum + self.DATA_LENGTH]
 
         # create a data segment  
@@ -239,7 +239,7 @@ class RDTLayer(object):
                 #         when a segment contains multiple chars
                 # ###########################################################################################
                 # YOUR CODE HERE:
-
+                #the acknum is just seg.seqnum + 4 which is the data length
                 acknum = seg.seqnum + self.DATA_LENGTH
 
                 # ###########################################################################################
