@@ -95,17 +95,17 @@ class RDTLayer(object):
     def getCumAck(self):
         # YOUR CODE HERE:
 
-        valkeys = sorted(self.dictReceived.keys())
-        lengthOfValkeys = len(valkeys)
+        keys = sorted(self.dictReceived.keys())
+        lengthOfValkeys = len(keys)
 
         i = 0
 
         while i < lengthOfValkeys:
             if i == lengthOfValkeys - 1:
-                return valkeys[i] + str(4)
+                return keys[i] + 4
 
-            if valkeys[i] + str(4) != valkeys[i + 1]:
-                return valkeys[i] + str(4)
+            if keys[i] + 4 != keys[i + 1]:
+                return keys[i] + 4
 
 
         print ("getCumAck")
