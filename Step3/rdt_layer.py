@@ -104,7 +104,7 @@ class RDTLayer(object):
             if i == lengthOfValkeys - 1:
                 return valkeys[i] + str(4)
 
-            if valkeys[i] + 4 != valkeys[i + 1]:
+            if valkeys[i] + str(4) != valkeys[i + 1]:
                 return valkeys[i] + str(4)
 
 
