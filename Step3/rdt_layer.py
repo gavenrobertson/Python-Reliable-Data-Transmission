@@ -74,11 +74,15 @@ class RDTLayer(object):
         # ########################################################################
         # YOUR CODE HERE:
         #self.dataReceived = []
-        finalsort = sorted(self.dataReceived())
+        finalsort = sorted(self.dataReceived.items())
         print(finalsort)
-        print("THIS IS WHERE THE FINAL SORT VARIABLE IS::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::")
+        #print("THIS IS WHERE THE FINAL SORT VARIABLE IS::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::")
 
-         
+        #this is where we are suppose to clear the data.recieved
+        self.dataReceived.clear()
+
+        self.dataReceived = list(finalsort.values())
+
         return ''.join(self.dataReceived)
 
 
@@ -90,6 +94,20 @@ class RDTLayer(object):
     # ########################################################################
     def getCumAck(self):
         # YOUR CODE HERE:
+
+        valkeys =  sorted(self.finalsort.keys())
+        lengthOfValkeys = len(valkeys)
+
+        i = 0
+
+        while(i < lengthOfValkeys):
+            if i == lengthOfValkeys - 1:
+                return valkeys[i] + 4
+
+            if valkeys[i] + 4 != valkeys[i + 1]:
+                return valkeys[i] + 4
+
+
         print ("getCumAck")
        
 
@@ -242,7 +260,7 @@ class RDTLayer(object):
                 # ###########################################################################################
                 # YOUR CODE HERE:
 
-                self.dataReceived.append(seg.payload)
+                self.dictReceived[seg.payload] = seg.payload
 
                 # assign value to acknum, so it shows the next expected byte
                 # ###########################################################################################
@@ -251,7 +269,7 @@ class RDTLayer(object):
                 # ###########################################################################################
                 # YOUR CODE HERE:
 
-                acknum = seg.seqnum + self.DATA_LENGTH
+                #acknum = seg.seqnum + self.DATA_LENGTH
 
                 # ###########################################################################################
                 # Step 3: modify the acknum so it gets the cumulative ack
@@ -259,7 +277,7 @@ class RDTLayer(object):
                 # ###########################################################################################
                 # YOUR CODE HERE:
 
-                #acknum = seg.seqnum + 1
+                acknum = self.getCumAck()
                 
 
                 # change the dataPacketsReceived to True, indicating this is indeed a data packet
