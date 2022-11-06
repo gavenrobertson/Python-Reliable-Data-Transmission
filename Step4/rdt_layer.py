@@ -150,7 +150,7 @@ class RDTLayer(object):
         for key1 in selfDictSent:
             if counterForRec == 0:
                 continue
-            for key2 in selfDictSent:
+            for key2 in self.dictReceived:
                 if self.dictSent[key1].seqnum == self.dictReceived[key2].seqnum:
                     counterForRec == 1
                 if counterForRec  == 1:
