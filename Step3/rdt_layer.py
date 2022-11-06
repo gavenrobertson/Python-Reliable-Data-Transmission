@@ -74,7 +74,7 @@ class RDTLayer(object):
         # ########################################################################
         # YOUR CODE HERE:
         #self.dataReceived = []
-        finalsort = sorted(self.dataReceived.items())
+        finalsort = dict(sorted(self.dataReceived.items()))
         print(finalsort)
         #print("THIS IS WHERE THE FINAL SORT VARIABLE IS::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::")
 
