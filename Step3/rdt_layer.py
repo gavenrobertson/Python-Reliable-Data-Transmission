@@ -98,9 +98,9 @@ class RDTLayer(object):
         for key in self.dictReceived:
 
             print("HERE IS THE KEY::::::::::::::::::::::::::::::::::::", key)
-            #if key + self.DATA_LENGTH not in self.dictReceived.keys():
+            if key + self.DATA_LENGTH not in self.dictReceived.keys():
 
-                #return self.dictReceived[key] + self.DATA_LENGTH
+                return self.dictReceived[key] + self.DATA_LENGTH
 
 
 
@@ -268,7 +268,7 @@ class RDTLayer(object):
                 # ###########################################################################################
                 # YOUR CODE HERE:
 
-                self.dictReceived[seg.payload] = seg.payload
+                self.dictReceived[seg.seqnum] = seg.payload
 
                 # assign value to acknum, so it shows the next expected byte
                 # ###########################################################################################
