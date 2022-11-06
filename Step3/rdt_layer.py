@@ -95,7 +95,7 @@ class RDTLayer(object):
     def getCumAck(self):
         # YOUR CODE HERE:
 
-        valkeys =  sorted(self.finalsort.keys())
+        valkeys = sorted(self.dictReceived.keys())
         lengthOfValkeys = len(valkeys)
 
         i = 0
