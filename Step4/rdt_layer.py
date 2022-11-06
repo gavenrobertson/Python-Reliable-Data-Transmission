@@ -166,7 +166,7 @@ class RDTLayer(object):
                     #now we need to increment the segment timeouts
                     self.countSegmentTimeouts = self.countSegmentTimeouts + 1
 
-            for key in intializeDict:
+        for key in intializeDict:
                 del self.dictSent[key]
                 removed = 1
 
