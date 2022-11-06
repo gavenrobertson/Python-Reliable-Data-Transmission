@@ -34,7 +34,7 @@ class RDTLayer(object):
     #       then set MAX_ITERATIONS_SEGMENT_TIMEOUT to 2 (7-5)
     # ########################################################################
     # YOUR CODE HERE:
-    
+    MAX_ITERATIONS_SEGMENT_TIMEOUT = 2
 
     # Add class members as needed...
 
@@ -105,7 +105,7 @@ class RDTLayer(object):
                 #return self.dictReceived[key] + self.DATA_LENGTH
 
 
-
+        #old implementation, doesnt work.
         #keys = sorted(self.dictReceived.keys())
         #lengthOfValkeys = len(keys)
 
@@ -143,6 +143,34 @@ class RDTLayer(object):
     # ########################################################################
     def manageSegmentTimeouts(self):
         # YOUR CODE HERE:
+        intializeDict = dict()
+        selfDictSent = self.dictSent
+        counterForRec = 0
+        removed = 1
+        for key1 in selfDictSent:
+            if counterForRec == 0:
+                continue
+            for key2 in selfDictSent:
+                if self.dictSent[key1].seqnum == self.dictReceived[key2].seqnum:
+                    counterForRec == 1
+                if counterForRec  == 1:
+                    continue
+                break
+
+            if removed == 1:
+                continue
+
+            if counterForRec == 0:
+                if self.currentIteration - self.dictSent[key1].getStartIteration() > self.MAX_ITERATIONS_SEGMENT_TIMEOUT:
+                    #here is when access our dict
+                    intializeDict[key1] = self.dictSent[key1]
+                    #now we need to increment the segment timeouts
+                    self.countSegmentTimeouts = self.countSegmentTimeouts + 1
+
+            for key in intializeDict:
+                del self.dictSent[key]
+                removed = 1
+
         print ("manage timeouts")
 
 
@@ -222,7 +250,7 @@ class RDTLayer(object):
         # Step 4: set seg's start iteration 
         # ###################################################################################
         # YOUR CODE HERE:
-
+            seg.setStartIteration(self.currentIteration)
 
         # Use the unreliable sendChannel to send the segment
             self.sendChannel.udt_send(seg)
