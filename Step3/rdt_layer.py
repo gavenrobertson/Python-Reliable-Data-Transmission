@@ -102,10 +102,10 @@ class RDTLayer(object):
 
         while(i < lengthOfValkeys):
             if i == lengthOfValkeys - 1:
-                return valkeys[i] + 4
+                return(valkeys[i] + 4)
 
             if valkeys[i] + 4 != valkeys[i + 1]:
-                return valkeys[i] + 4
+                return(valkeys[i] + 4)
 
 
         print ("getCumAck")
