@@ -153,11 +153,11 @@ class RDTLayer(object):
             for key2 in selfDictSent:
                 if self.dictSent[key1].seqnum == self.dictReceived[key2].seqnum:
                     counterForRec == 1
-               # if counterForRec  == 1:
-                ## break
+                if counterForRec  == 1:
+                    break
 
-            #if removed == 1:
-                #continue
+            if removed == 1:
+                continue
 
             if counterForRec == 0:
                 if self.currentIteration - self.dictSent[key1].getStartIteration() > self.MAX_ITERATIONS_SEGMENT_TIMEOUT:
