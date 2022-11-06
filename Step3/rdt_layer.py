@@ -94,11 +94,10 @@ class RDTLayer(object):
     # ########################################################################
     def getCumAck(self):
         # YOUR CODE HERE:
-        key = sorted(self.dictReceived.keys())
 
         for key in self.dictReceived:
 
-            if key + self.DATA_LENGTH not in self.dictReceived:
+            if key + self.DATA_LENGTH not in self.dictReceived.keys():
 
                 return self.dictReceived[key] + self.DATA_LENGTH
 
